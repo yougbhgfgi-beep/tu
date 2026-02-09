@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رسالة خاصة لكِ</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Aref+Ruqaa:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Particles Background -->
+    <div id="particles-container"></div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="" type="audio/mp3">
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
+    <!-- Music Control Button -->
+    <div class="music-control hidden" id="music-control">
+        <button onclick="toggleMusic()">
+            <i class="fas fa-music"></i>
+        </button>
+    </div>
+
+    <!-- Login Section -->
+    <section id="login-section" class="active-section">
+        <div class="login-container">
+            <div class="heart-icon"><i class="fas fa-heart"></i></div>
+
+            <div class="names-container">
+                <span class="name-part">Ahmed</span>
+                <span class="heart-separator"><i class="fas fa-heart"></i></span>
+                <span class="name-part">Basmala</span>
+            </div>
+            <p style="font-family: 'Aref Ruqaa', serif; font-size: 1.5rem;">الموقع ده ليكي انتي و بس</p>
+
+            <div class="input-group" id="login-inputs">
+                <div class="date-inputs">
+                    <input type="text" id="day-input" placeholder="يوم" maxlength="2" autocomplete="off">
+                    <input type="text" id="month-input" placeholder="شهر" maxlength="2" autocomplete="off">
+                    <input type="text" id="year-input" placeholder="سنة" maxlength="4" autocomplete="off">
+                </div>
+                <button onclick="checkPassword()" id="login-btn">دخول <i class="fas fa-arrow-left"></i></button>
+            </div>
+            <p id="error-message" class="error-msg"></p>
+        </div>
+    </section>
+
+    <!-- Main App Content (Hidden Initially) -->
+    <div id="main-app" class="hidden">
+
+        <!-- Header -->
+        <header>
+            <div class="logo">Our Story</div>
+            <nav>
+                <ul>
+                    <li onclick="showSection('home')"><i class="fas fa-home"></i> الرئيسية</li>
+                    <li onclick="showSection('messages')"><i class="fas fa-envelope"></i> الرسائل</li>
+                    <li onclick="showSection('gallery')"><i class="fas fa-images"></i> الصور</li>
+                    <li onclick="showSection('videos')"><i class="fas fa-video"></i> الفيديوهات</li>
+                    <li onclick="showSection('reasons')"><i class="fas fa-heart"></i> ليه بحبك؟</li>
+                    <li onclick="showSection('calculator')"><i class="fas fa-calculator"></i> مقياس الحب</li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Dynamic Sections -->
+        <main>
+            <!-- Home Section -->
+            <section id="home" class="content-section active">
+                <div class="hero-content" data-aos="fade-in">
+                    <h1 id="greeting-name">أهلاً بكِ</h1>
+                    <p class="love-quote" id="daily-quote">"كل ثانية معاكِ حياة تانية..."</p>
+
+                    <!-- Love Counter -->
+                    <div class="counter-label">بقالنا مع بعض... ومكملين ❤️</div>
+                    <div id="love-counter" class="love-counter">
+                        <div class="time-unit"><span id="years">0</span><label>سنة</label></div>
+                        <div class="time-unit"><span id="months">0</span><label>شهر</label></div>
+                        <div class="time-unit"><span id="days">0</span><label>يوم</label></div>
+                        <div class="time-unit"><span id="hours">0</span><label>ساعة</label></div>
+                        <div class="time-unit"><span id="minutes">0</span><label>دقيقة</label></div>
+                    </div>
+
+                    <button class="cta-btn" onclick="showSection('messages')">شوفي الرسالة الأولى ❤️</button>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages" class="content-section">
+                <h2 class="section-title">رسائل من القلب</h2>
+                <div class="messages-container" id="messages-list">
+                    <!-- Messages injected via JS -->
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery" class="content-section">
+                <h2 class="section-title">كلام من القلب ليكي</h2>
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Photos injected via JS -->
+                </div>
+            </section>
+
+            <!-- Videos Section -->
+            <section id="videos" class="content-section">
+                <h2 class="section-title">فيديوهات للذكرى</h2>
+                <div class="videos-grid" id="videos-grid">
+                    <!-- Videos injected via JS -->
+                </div>
+            </section>
+
+            <!-- Reasons I Love You Section -->
+            <section id="reasons" class="content-section">
+                <h2 class="section-title">ليه بحبك؟</h2>
+                <div class="reasons-container" id="reasons-container">
+                    <!-- Injected via JS -->
+                </div>
+            </section>
+
+            <!-- Love Calculator Section -->
+            <section id="calculator" class="content-section">
+                <h2 class="section-title">مقياس حبنا</h2>
+                <div class="calculator-container">
+                    <div class="calc-inputs">
+                        <input type="text" id="your-name" value="Ahmed" readonly>
+                        <div class="heart-pulse">❤️</div>
+                        <input type="text" id="partner-name" value="Basmala" readonly>
+                    </div>
+                    <button onclick="calculateLove()">قياس نسبة الحب</button>
+                    <div id="love-result" class="love-result hidden">
+                        <span id="love-percentage">0%</span>
+                        <p id="love-message"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Surprise Section -->
+            <section id="surprise" class="content-section hidden-nav-section">
+                <div class="surprise-content">
+                    <h2>وعد أخير...</h2>
+                    <p id="surprise-text"></p>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>صُنع بكل حب ❤️</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
