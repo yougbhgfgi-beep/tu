@@ -235,49 +235,7 @@ body {
     }
 }
 
-/* Prank Character - Static Holder */
-.input-carrier {
-    position: relative;
-    display: inline-block;
-    margin-top: 3rem;
-    /* Space for the guy */
-}
-
-.the-guy {
-    font-size: 5rem;
-    position: absolute;
-    top: -75px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 1;
-    /* Always visible */
-    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.5));
-    animation: breathe 3s ease-in-out infinite;
-    /* Subtle breathing */
-    z-index: 10;
-}
-
-@keyframes breathe {
-
-    0%,
-    100% {
-        transform: translateX(-50%) scale(1);
-    }
-
-    50% {
-        transform: translateX(-50%) scale(1.05);
-    }
-}
-
-/* Remove movement animations */
-.input-carrier.walking {
-    animation: none;
-}
-
-.carrying-item {
-    animation: none;
-    transform: none;
-}
+/* Prank Character Styles Removed */
 
 /* Input Group - Static Luxury Design */
 .input-group {
@@ -1154,6 +1112,55 @@ body {
     .memory-card.right .memory-content::before {
         right: -40px;
         left: auto;
+    }
+}
+
+/* Mobile Optimization for Login */
+@media screen and (max-width: 480px) {
+    .login-container {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .name-part {
+        font-size: 2rem;
+        /* Smaller names */
+    }
+
+    .heart-separator {
+        font-size: 1.5rem;
+    }
+
+    .login-container p {
+        font-size: 1rem !important;
+    }
+
+    .date-inputs {
+        gap: 8px;
+    }
+
+    .date-inputs input {
+        width: 50px;
+        /* Smaller inputs */
+        padding: 10px;
+        font-size: 1.1rem;
+    }
+
+    .date-inputs input:last-child {
+        width: 70px;
+        /* Year input */
+    }
+
+    .input-group button {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .names-container {
+        gap: 10px;
+        flex-direction: row;
+        /* Keep on same line if possible, or wrap nicely */
+        flex-wrap: wrap;
     }
 }
 
